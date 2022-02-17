@@ -1,7 +1,3 @@
-if(NOT MINGW)
-find_package(Filesystem REQUIRED COMPONENTS Experimental Final)
-endif()
-
 #######################################################
 ### Library                                         ###
 #######################################################
