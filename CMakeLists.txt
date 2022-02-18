@@ -40,7 +40,7 @@ option(BUILD_PACKAGE "Build package" ${MASTER_PROJECT})
 
 # How to build
 option(BUILD_WITH_PEDANTIC_WARNINGS "Use pedantic warnings. This is useful for developers because many of these warnings will be in continuous integration anyway." ${DEBUG_MODE})
-option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 option(BUILD_WITH_SANITIZERS "Use pedantic warnings." ${DEBUG_MODE})
 
 # MSVC hacks
@@ -146,11 +146,6 @@ if (BUILD_INSTALLER)
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/Matplot++Config.cmake
             DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
 
-    # Install cmake to find filesystem as a dependency
-    if (NOT BUILD_SHARED_LIBS)
-        install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cmake/FindFilesystem.cmake
-                DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Matplot++)
-    endif ()
 endif ()
 
 #######################################################
